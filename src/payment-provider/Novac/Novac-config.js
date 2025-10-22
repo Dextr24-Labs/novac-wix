@@ -21,6 +21,10 @@ export function getConfig() {
         label: 'Secret Key'
       },
       simpleField: {
+        name: 'public_key',
+        label: 'Public Key'
+      },
+      simpleField: {
         name: 'logo_url',
         label: 'Merchant Logo'
       }

@@ -16,11 +16,10 @@ export const connectAccount = async (options, context) => {
         credentials: options.credentials,
     };
 
-    // get equivalent of "business name" endpoint in Novac
-    const response = await fetch('https://api-pilot.budpay.com/api/v2/business-name', {
+    const response = await fetch('https://api.novacpayment.com/api/v1/checkout/merchant-info', {
         method: "get",
         headers: {
-            'authorization': `Bearer ${options.credentials.secret_key}`,
+            'authorization': `Bearer ${options.credentials.public_key}`,
             'content-type': 'application/json'
         }
     });
@@ -28,8 +27,8 @@ export const connectAccount = async (options, context) => {
     const responseData = await response.json();
 
     if (response.status === 200) {
-        returnObj.accountId = String(responseData.data.id);
-        returnObj.accountName = responseData.data.name;
+        returnObj.accountId = String(responseData.data.merchantId);
+        returnObj.accountName = responseData.data.merchantName;
     } else {
         returnObj.errorCode = 'INVALID_CREDENTIALS';
         returnObj.reasonCode = 2004;
