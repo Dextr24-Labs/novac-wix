@@ -10,7 +10,7 @@ export function getConfig() {
         billingAddressMandatoryFields: ['EMAIL'],
         logos: {
           colored: {
-            png: 'https://cdn.jsdelivr.net/gh/BudPay-Org/budpay-woo-commerce-plugin@main/assets/img/budpay.png'
+            png: ''
           }
         },
       }
